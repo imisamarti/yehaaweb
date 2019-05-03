@@ -1,0 +1,35 @@
+.thumbnail img {
+    width:100%;
+}
+
+.thumbnail{
+    padding: 0%;
+}
+
+.thumbnail .caption-full{
+    padding: 9px;
+}
+
+.delete-form{
+    display:inline;
+}
+
+.navbar-brand{
+    margin-left: 5%;
+}
+
+.btn{
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-more {
+    margin-bottom:9px;
+}
+
+.btn-camp {
+    text-align: center;
+    font-weight: 400;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
