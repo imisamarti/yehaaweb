@@ -17,7 +17,17 @@ var express     = require("express"),
     
     
     
-mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
+// mongodb+srv://isadoramartinez:<password>@cluster0-9i1gj.mongodb.net/test?retryWrites=true;
+mongoose.connect("mongodb+srv://isadoradmar:password123456@cluster0-9i1gj.mongodb.net/test?retryWrites=true/any_database?authSource=admin&replicaSet=xyz",{
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then (() =>{
+    console.log("connected to db")
+}).catch(err =>{
+    console.log("Error:", err.message)
+});
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
