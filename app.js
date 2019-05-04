@@ -11,22 +11,15 @@ var express     = require("express"),
     User        = require("./models/user"),
     seedDB      = require("./seeds")
     
+    //routes
+    
     var commentsRoute = require("./routes/comments"),
         campgroundsRoute = require("./routes/campgrounds"),
         authRoute =  require("./routes/auth");
     
-    
-    
-// mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
-// mongodb+srv://isadoramartinez:<password>@cluster0-9i1gj.mongodb.net/test?retryWrites=true;
-mongoose.connect("mongodb+srv://isadoradmar:password123456@cluster0-9i1gj.mongodb.net/test?retryWrites=true/any_database?authSource=admin&replicaSet=xyz",{
-    useNewUrlParser: true,
-    useCreateIndex: true
-}).then (() =>{
-    console.log("connected to db")
-}).catch(err =>{
-    console.log("Error:", err.message)
-});
+      
+    var url= process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
