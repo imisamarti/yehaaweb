@@ -21,13 +21,13 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     // get data from form and add to campgrounds array
     var name = req.body.name;
     var image = req.body.image;
+    var cost = req.body.cost;
     var desc = req.body.description;
-    var price = req.body.price;
     var author = {
         id: req.user._id,
         username: req.user.username
     }
-    var newCampground = {name: name, image: image, price:price, description: desc, author:author}
+    var newCampground = {name: name, image: image, cost:cost, description: desc, author:author}
     // Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
@@ -80,15 +80,17 @@ router.put("/:id",middleware.checkCampgroundOwnership, function(req, res){
     });
 });
 
-// DESTROY CAMPGROUND ROUTE
-router.delete("/:id",middleware.checkCampgroundOwnership, function(req, res){
-   Campground.findByIdAndRemove(req.params.id, function(err){
-      if(err){
-          res.redirect("/campgrounds");
-      } else {
-          res.redirect("/campgrounds");
-      }
-   });
+router.put("/:id", function(req, res){
+    var newData = {name: req.body.name, image: req.body.image, cost: req.body.cost, description: req.body.description};
+    Campground.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, campground){
+        if(err){
+            req.flash("error", err.message);
+            res.redirect("back");
+        } else {
+            req.flash("success","Successfully Updated!");
+            res.redirect("/campgrounds/" + campground._id);
+        }
+    });
 });
 
 
