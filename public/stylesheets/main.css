@@ -2,6 +2,11 @@
     width:100%;
 }
 
+.navbar-default {
+    background-color: initial;
+    border-color: #e7e7e7;
+}
+
 .thumbnail{
     padding: 0%;
 }
@@ -32,4 +37,9 @@
     border: none;
     border-radius: 1.5rem;
     padding:2%;
+}
+
+/*user profile*/
+.profile-info{
+     padding-top: 2vh;
 }

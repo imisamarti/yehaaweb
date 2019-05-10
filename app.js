@@ -12,7 +12,6 @@ var express     = require("express"),
     seedDB      = require("./seeds")
     
     //routes
-    
     var commentsRoute = require("./routes/comments"),
         campgroundsRoute = require("./routes/campgrounds"),
         authRoute =  require("./routes/auth");

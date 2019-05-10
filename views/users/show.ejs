@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 profile-names">
+            <h1> <%= user.firstName + " " + user.lastName %> </h1>
+            <div class="thumbnail">
+            <img src= "<%= user.avatar %>" alt ="user profile image">
+            </div>
+        </div>
+        <h3>User information:</h3>
+        <div class="col-md-8 profile-info">
+           Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Many say exploration is part of our destiny, but it’s actually our duty to future generations and their quest to ensure the survival of the human species.
+        </div>
+    
+      <h3> <%= user.username%>'s campgrounds:</h3> 
+      <div class="container">
+            <% campgrounds.forEach(function(campground){ %>
+                <ul>
+                 <li> <a href="/campgrounds/<%=campground.id %>"><%= campground.name %></a></li>
+                </ul>
+            <% }); %>
+               </div>
+              </div> 
+</div>
+
+
+<% include ../partials/footer %>

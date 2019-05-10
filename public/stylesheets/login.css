@@ -4,13 +4,13 @@
     background-image: url(https://images.unsplash.com/photo-1527333886037-3b8f29f96eee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);
     /*padding-top: 60vh;*/
     /*background-image: url(https://images.unsplash.com/photo-1472494731104-3ba69e52845b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);*/
-    height: 400px;
+    height: 500px;
 }
 .container-Login-B{
     width:70%;
     margin-left:15%;
     background-image: url(https://images.unsplash.com/photo-1524856781660-e5c92f4ac62a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80); /*padding-top: 60vh;*/
-    height: 450px;
+    height: 550px;
 }
 .login-container{
     width:96%;
@@ -21,13 +21,14 @@
     text-align: center;
     /*padding-top: 1%;*/
   
-    padding-top: 12vh;
+    padding-top: 9vh;
     margin-right: 2%;
 }
 
 .login-form-1 {
     border-radius: 5px;
     text-align: center;
+     padding-top: 12vh;
     padding: 1%;
     background:#282726;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
