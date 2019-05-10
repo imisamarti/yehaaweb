@@ -4,11 +4,16 @@
         <!-- Make site responsive on mobile/tablet -->
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title> Yeeha </title>
+             <!--Links-->
+            <link href="https://fonts.googleapis.com/css?family=Passion+One|Roboto:300" rel="stylesheet">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" href="/stylesheets/main.css">
+            
     </head>
  <body>
      
+     <!--Start of body-->
+        <!--NAV BAR-->
      <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -33,13 +38,16 @@
                   <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
                   <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
               <% } else { %>
-                  <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                  <li><a href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a></li>
+                  <li><a href="/users/<%= currentUser._id %>/edit">Edit Profile</a></li>
                   <li><a href="/logout">Logout</a></li>
               <% } %>
           </ul>
         </div>
     </div>
 </nav>
+
+<!--These are the Flash Messages-->
 
  <div class="container">
         

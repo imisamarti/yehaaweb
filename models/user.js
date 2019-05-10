@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var    passportLocalMongoose = require("passport-local-mongoose");
+var passportLocalMongoose = require("passport-local-mongoose");
 
  
 var UserSchema = new mongoose.Schema({
@@ -8,6 +8,7 @@ var UserSchema = new mongoose.Schema({
    firstName: String,
    lastName:String,
    avatar: String,
+   info: String,
    isAdmin: {type:Boolean,defaul: false}
 });
  

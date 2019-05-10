@@ -3,6 +3,7 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 var Campground = require("../models/campground");
+var middleware = require("../middleware/index");
 
 //root route
 router.get("/", function(req, res){
@@ -58,8 +59,9 @@ router.post("/login", passport.authenticate("local",
        res.redirect("/campgrounds");
     });
 
+// user profile get
     
-    router.get("/users/:id",function(req,res){
+    router.get("/users/:id",middleware.isLoggedIn,function(req,res){
        User.findById(req.params.id,function(err,foundUser){
           if(err || !foundUser){
               req.flash("error","User not found");
@@ -73,9 +75,41 @@ router.post("/login", passport.authenticate("local",
                   res.render("users/show",{user:foundUser,campgrounds:campgrounds});
                   }
               });
-       } 
-    });
+          } 
+      });
+    });    
     
-});    
+// user profile edit form
+ router.get("/users/:id/edit", function(req,res){
+     User.findById(req.params.id, function(err,foundUser){
+            res.render("users/edit", {user:foundUser}) 
+    });
+ });
+ 
+// user profile update
+router.put("/users/:id", function(req, res){
+    // find and update the correct user
+    User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser){
+       if(err){
+           res.redirect("/campgrounds");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/users/" + req.params.id);
+       }
+    });
+});
+
+router.put("/users/:id", function(req, res){
+    var newData = {firstName: req.body.firstName, lastName: req.body.lastName, avatar: req.body.avatar, info: req.body.info};
+    User.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, user){
+        if(err){
+            req.flash("error", err.message);
+            res.redirect("back");
+        } else {
+            req.flash("success","Successfully Updated!");
+            res.redirect("/user/" + user._id);
+        }
+    });
+});
 
 module.exports = router;

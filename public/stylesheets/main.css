@@ -43,3 +43,27 @@
 .profile-info{
      padding-top: 2vh;
 }
+
+.profile-pic {
+    border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+/*jumbotron*/
+.jumbotron{
+    color: white;
+    background-color: #071C53;
+    background-image: url(https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2147&q=80);
+}
+
+.jumbotron h1{
+     font-family: 'Passion One', cursive;
+}
+.GeneratedMarquee {
+font-size:1.5em;
+/*line-height:1.3em;*/
+color:white;
+padding:1.5em;
+
+}
