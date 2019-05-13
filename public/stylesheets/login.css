@@ -1,8 +1,13 @@
+/*Logo colors*/
+/*#ABFB88 - lighter*/
+/*#3DC094 -med*/
+/*-darker*/
+
 .container-Login{
     width:70%;
     margin-left:15%;
     background-image:url(https://images.unsplash.com/photo-1520685303244-0461943ece6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-
+    border-radius: 1%;
     /*background-image: url(https://images.unsplash.com/photo-1527333886037-3b8f29f96eee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);*/
     /*padding-top: 60vh;*/
     /*background-image: url(https://images.unsplash.com/photo-1472494731104-3ba69e52845b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);*/
@@ -20,16 +25,16 @@
     height: 550px;
 }
 .login-container{
-    width:104%;
+    width:91%;
     /*margin: 0 auto;*/
-    margin-left:2%;
+    margin-left:7%;
     /*margin-bottom: 1%;*/
     position: relative;
     text-align: center;
     /*padding-top: 1%;*/
   
-    padding-top: 9vh;
-    margin-right: 2%;
+    padding-top: 11vh;
+    margin-right: 7%;
 }
 
 .login-form-1 {
@@ -69,6 +74,7 @@
     padding:2%;
 }
 .btn-sig{
+    background-color: #3DC094;
     text-align: center;
     font-weight: 600;
     width: 50%;

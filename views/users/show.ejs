@@ -1,37 +1,58 @@
 <% include ../partials/header %>
 
-<div class="container">
- <div class="container">    
+<div class="container profile-background">
     <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail profile-pic">
+        <div class="col-md-4 col-sm-2 profile-first-container text-center">
+        
+            <h1 class="profile-names text-center"><%= user.firstName + " " + user.lastName %> </h1> 
+            
+                <img class = "profile-pic" src= "<%= user.avatar %>" alt ="user profile picture">
+            
+         
+         <h3>User information:</h3>
+            <%= user.info %>
+            <div>
+        <h3>Contact:</h3>        
+                <button type="button" class="btn btn-success btn-contact" aria-label="earphone">
+                  <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                </button>
                 
-                <img src= "<%= user.avatar %>" alt ="user profile image">
+                <button type="button" class="btn btn-success btn-contact" aria-label="">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                </button>
             </div>
-         <h1 class="profile-names"><%= user.firstName + " " + user.lastName %> </h1>    
         </div>
         <!--image and user name ending-->
-        <h3>User information:</h3>
-        <div class="col-md-7 profile-info">
-            <%= user.info %>
-        </div>
-    </div>
- </div>        
-    <!--end of user info-->
- <div class="container">
-    <div class="row">
-      <div class"col-md-12">
+        <div class"col-md-7">
       
-        <h3><%= user.username%>'s campgrounds:</h3> 
-            <% campgrounds.forEach(function(campground){ %>
-                <ul>
-                    <li> <a href="/campgrounds/<%=campground.id %>"><%= campground.name %></a></li>
+        <h4 class="profile-username-name"><%= user.username%>'s campgrounds:</h4> 
+        
+                <ul >
+                    <li class="text-center">  
+                        <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+                         <% campgrounds.forEach(function(campground){ %>
+                            <div class="col-md-6 col-sm-4">
+                                <div class="thumbnail" id="index-pic-container-b">
+                             
+                                <a href= "/campgrounds/<%= campground._id %>" >
+                                    <img src= "<%= campground.image %>">
+                                </a>    
+                               
+                                        <div class="caption">
+                                            <h4><%= campground.name %> </h4>
+                                        </div>
+                                    
+                                </div>
+                            </div>    
+                         <% }); %>
+                        </div>
+                    </li>
                 </ul>
-            <% }); %>
         </div>
     </div>
- </div> 
-</div>
-
-
+</div>       
+    <!--end of user info-->
+    
+    <!--NEW Profile--> 
+    
 <% include ../partials/footer %>

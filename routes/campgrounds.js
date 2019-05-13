@@ -1,7 +1,7 @@
-var express = require("express");
-var router  = express.Router();
-var Campground = require("../models/campground");
-var middleware = require("../middleware/index");
+var express     = require("express");
+var router      = express.Router();
+var Campground  = require("../models/campground");
+var middleware  = require("../middleware/index");
 
 
 //INDEX - show all campgrounds
@@ -19,11 +19,11 @@ router.get("/", function(req, res){
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, function(req, res){
     // get data from form and add to campgrounds array
-    var name = req.body.name;
-    var image = req.body.image;
-    var cost = req.body.cost;
-    var desc = req.body.description;
-    var author = {
+    var name    = req.body.name;
+    var image   = req.body.image;
+    var cost    = req.body.cost;
+    var desc    = req.body.description;
+    var author  = {
         id: req.user._id,
         username: req.user.username
     }

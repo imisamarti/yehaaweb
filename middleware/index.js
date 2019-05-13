@@ -1,6 +1,6 @@
-var Campground = require ("../models/campground.js");
-var Comment = require ("../models/comment.js");
-var User = require ("../models/user.js");
+var Campground  = require ("../models/campground.js");
+var Comment     = require ("../models/comment.js");
+var User        = require ("../models/user.js");
 
 var middlewareObj = {};
 
@@ -35,8 +35,8 @@ middlewareObj.checkProfileOwnership = function (req,res,next){
                 if(foundUser.author.id.equals(req.user._id) || req.user.isAdmin){
                     next();
                 } else {
-                req.flash("error","No permission granted");
-                res.redirect("back");
+                    req.flash("error","No permission granted");
+                    res.redirect("back");
                 }
             }
         });

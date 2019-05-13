@@ -1,13 +1,14 @@
 <% include ../partials/header %>
 
 <div class="container">
+    
     <% if(currentUser && currentUser.isAdmin) { %>
         <p><strong>Welcome, you are signed in as admin</strong></p>
     <% } %>
     
     <header class="jumbotron">
       <div class="container text-center">  
-        <h1>Welcome to Yeeha</h1>
+        <h1>Welcome to <span class="h1-brand">Yeeha</span></h1>
             <marquee class="GeneratedMarquee" direction="left" scrollamount="4" behavior="scroll">View our hand picked campgrounds from all over the world</marquee>
             <p>
                <a class="btn btn-primary btn-lg btn-camp" href="/campgrounds/new"> Add new campground</a>
@@ -15,22 +16,20 @@
       </div>
     </header>
 
-
     <div class="row text-center" style="display:flex; flex-wrap:wrap;">
         
-    
     <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-3 col-sm-6">
-            
-            <div class="thumbnail" id="index">
-            <img src = "<%= campground.image %>">
-                <div class="caption">
+        <div class="col-md-3 col-sm-4">
+            <div class="thumbnail" id="index-pic-container">
+                <!--<div id="index-pic-container">-->
+                    <img src = "<%= campground.image %>">
+                <!--</div>-->
+            <div class="caption">
             <h4><%= campground.name %> </h4>
              </div>
              <a href= "/campgrounds/<%= campground._id %>" class= "btn btn-info btn-more"> More info</a>
         </div>
     </div>    
-    
 <% }); %>
     </div>
 </div>

@@ -1,7 +1,9 @@
 .thumbnail img {
     width:100%;
 }
-
+ul {
+    list-style: none;
+}
 .navbar-default {
     background-color: initial;
     border-color: #e7e7e7;
@@ -40,30 +42,81 @@
 }
 
 /*user profile*/
-.profile-info{
-     padding-top: 2vh;
+
+.profile-background{
+    padding-top: 5vh;
+}
+.profile-first-container{
+    background-color: #ddd;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px; 
+    margin-right: 4%;
+    height: 450px;
+    margin-left: 4%;
+}
+
+
+.profile-info {
+     border: 1px solid #ddd; 
 }
 
 .profile-pic {
-    border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  width: 150px; /* Set a small width */
+   /*vertical-align: middle;*/
+   width: 140px;
+   height: 140px;
+   border-radius: 50%;
+   margin-left: 2vh;
 }
+
+.profile-names{
+    padding-top: 1.5vh;
+}
+
+.profile-username-name{
+    padding: 1vh;
+}
+
+.btn-contact {
+    margin-top: 2vh;
+    margin-left: 2vh;
+}
+
 /*jumbotron*/
-.jumbotron{
+.jumbotron {
     color: white;
     background-color: #071C53;
     background-image: url(https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2147&q=80);
 }
 
-.jumbotron h1{
-     font-family: 'Passion One', cursive;
+.h1-brand{
+    font-family: 'Passion One', cursive;
+    font-size: 74px;
 }
 .GeneratedMarquee {
-font-size:1.5em;
-/*line-height:1.3em;*/
-color:white;
-padding:1.5em;
+    font-size:1.5em;
+    line-height:1.3em;
+    color:white;
+    padding:1vh;
+    font-family: 'Roboto', sans-serif;
 
+}
+
+/*index pictures*/
+#index-pic-container{
+    position: relative;
+    width:  240px;
+    height: 280px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+#index-pic-container-b{
+    padding-top: 1.5vh;
+    position: relative;
+    width:  250px;
+    height: 220px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
 }
