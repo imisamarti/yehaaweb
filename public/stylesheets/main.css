@@ -1,6 +1,11 @@
 .thumbnail img {
     width:100%;
 }
+
+h1 {
+    font-size: 4.5em;
+}
+
 ul {
     list-style: none;
 }
@@ -25,6 +30,8 @@ ul {
     margin-left: 5%;
 }
 
+/*buttons*/
+
 .btn{
     font-family: 'Roboto', sans-serif;
 }
@@ -37,8 +44,7 @@ ul {
     text-align: center;
     font-weight: 400;
     border: none;
-    border-radius: 1.5rem;
-    padding:2%;
+    padding:1em;
 }
 
 /*user profile*/
@@ -80,23 +86,39 @@ ul {
     margin-top: 2vh;
     margin-left: 2vh;
 }
+.two-main-btn{
+    margin-top: 16%;
+    margin-left: 23%;
+}
 
 /*jumbotron*/
-.jumbotron {
+.image-index{
     color: white;
-    background-color: #071C53;
-    background-image: url(https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2147&q=80);
+    /*background-image: url(https://images.unsplash.com/photo-1557329170-f329e0dfa53a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);*/
+    background-image: url(https://images.unsplash.com/photo-1445307806294-bff7f67ff225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80);
+    height: 700px;
+    margin-left: -17%;
+    margin-right: -17%;
+  
+}
+.form-control{
+    width: 62%;
+}
+.index-ctc{
+    padding-top: 10%;
+    padding: 10%;
 }
 
 .h1-brand{
     font-family: 'Passion One', cursive;
     font-size: 74px;
 }
+
 .GeneratedMarquee {
-    font-size:1.5em;
+    font-size:1.8em;
     line-height:1.3em;
     color:white;
-    padding:1vh;
+    padding:1%;
     font-family: 'Roboto', sans-serif;
 
 }

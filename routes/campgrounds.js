@@ -6,28 +6,45 @@ var middleware  = require("../middleware/index");
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
-    // Get all campgrounds from DB
-    Campground.find({}, function(err, allCampgrounds){
-       if(err){
-           console.log(err);
-       } else {
-          res.render("campgrounds/index",{campgrounds: allCampgrounds, page: 'campgrounds'});
-       }
-    });
+   if(req.query.search){
+       const regex = new RegExp(escapeRegex(req.query.search),'gi');
+        // Get all campgrounds from DB
+        Campground.find([
+            {name: regex},
+            {location: regex},
+            {"author.username":regex}
+            ],function(err, allCampgrounds){
+           if(err){
+               console.log(err);
+           } else {
+              res.render("campgrounds/index",{campgrounds: allCampgrounds, page: 'campgrounds'});
+           }
+        });
+    } else {
+         // Get all campgrounds from DB
+        Campground.find({}, function(err, allCampgrounds){
+           if(err){
+               console.log(err);
+           } else {
+              res.render("campgrounds/index",{campgrounds: allCampgrounds, page: 'campgrounds'});
+           }
+        });
+    }
 });
 
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, function(req, res){
     // get data from form and add to campgrounds array
-    var name    = req.body.name;
-    var image   = req.body.image;
-    var cost    = req.body.cost;
-    var desc    = req.body.description;
-    var author  = {
+    var name        = req.body.name;
+    var image       = req.body.image;
+    var cost        = req.body.cost;
+    var location    = req.body.location;
+    var desc        = req.body.description;
+    var author      = {
         id: req.user._id,
         username: req.user.username
     }
-    var newCampground = {name: name, image: image, cost:cost, description: desc, author:author}
+    var newCampground = {name: name, image: image, cost:cost, location:location, description: desc, author:author}
     // Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
@@ -81,7 +98,7 @@ router.put("/:id",middleware.checkCampgroundOwnership, function(req, res){
 });
 
 router.put("/:id", function(req, res){
-    var newData = {name: req.body.name, image: req.body.image, cost: req.body.cost, description: req.body.description};
+    var newData = {name: req.body.name, image: req.body.image, cost: req.body.cost, location:req.body.location, description: req.body.description};
     Campground.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, campground){
         if(err){
             req.flash("error", err.message);
@@ -93,6 +110,9 @@ router.put("/:id", function(req, res){
     });
 });
 
+function escapeRegex(text) {
+  return text.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+};
 
 module.exports = router;
 

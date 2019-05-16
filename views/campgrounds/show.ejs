@@ -17,7 +17,9 @@
                 <div class="caption-full" >
                     <h4 class="pull-right">$<%= campground.cost %>/night</h4>
                     <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                        <h4><a><%= campground.name %></a></h4> 
+                        <div class="d-inline">
+                          <h4><a><%= campground.name %></a> at <a><%= campground.location%></a></h4> 
+                        </div>
                         <a class="btn btn-warning btn-xs" href="/campgrounds/<%= campground._id %>/edit">Edit campground</a>
                         <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-danger btn-xs"> Delete </button>
