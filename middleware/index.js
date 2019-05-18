@@ -4,6 +4,15 @@ var User        = require ("../models/user.js");
 
 var middlewareObj = {};
 
+middlewareObj.isLoggedIn = function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+        req.flash("info", "You must be logged in!");
+        res.redirect("/login");
+        
+}
+
 middlewareObj.checkCampgroundOwnership = function(req,res,next){
     if(req.isAuthenticated()){
         Campground.findById(req.params.id,(err,foundCampground)=>{
@@ -67,14 +76,6 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
         req.flash("error", "You need to be logged in to do that");
         res.redirect("back");
     }
-}
-
-middlewareObj.isLoggedIn = function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-        req.flash("error","You must be logged in");
-        res.redirect("/login");
 }
 
 module.exports = middlewareObj;

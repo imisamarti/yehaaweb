@@ -97,6 +97,7 @@ router.put("/:id",middleware.checkCampgroundOwnership, function(req, res){
            res.redirect("/campgrounds");
        } else {
            //redirect somewhere(show page)
+           req.flash("success","Successfully updated!");
            res.redirect("/campgrounds/" + req.params.id);
        }
     });
@@ -109,7 +110,7 @@ router.put("/:id", function(req, res){
             req.flash("error", err.message);
             res.redirect("back");
         } else {
-            req.flash("success","Successfully Updated!");
+            req.flash("success","Successfully updated!");
             res.redirect("/campgrounds/" + campground._id);
         }
     });
@@ -120,8 +121,11 @@ router.put("/:id", function(req, res){
 router.delete("/:id",middleware.checkCampgroundOwnership, function(req, res){
    Campground.findByIdAndRemove(req.params.id, function(err){
       if(err){
+            req.flash("err","Campground not found");
+            res.redirect("back");
           res.redirect("/campgrounds");
       } else {
+          req.flash("success","Campground deleted");
           res.redirect("/campgrounds");
       }
    });
