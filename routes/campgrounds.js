@@ -1,8 +1,13 @@
 var express     = require("express");
 var router      = express.Router();
 var Campground  = require("../models/campground");
+var Comment     = require("../models/comment");
 var middleware  = require("../middleware/index");
+var { isLoggedIn, checkUserCampground, checkUserComment, isAdmin, isSafe } = middleware; // destructuring assignment
 
+function escapeRegex(text) {
+  return text.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+};
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
@@ -110,9 +115,17 @@ router.put("/:id", function(req, res){
     });
 });
 
-function escapeRegex(text) {
-  return text.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-};
+// DELETE - removes campground and its comments from the database
+// DESTROY CAMPGROUND ROUTE
+router.delete("/:id",middleware.checkCampgroundOwnership, function(req, res){
+   Campground.findByIdAndRemove(req.params.id, function(err){
+      if(err){
+          res.redirect("/campgrounds");
+      } else {
+          res.redirect("/campgrounds");
+      }
+   });
+});
 
 module.exports = router;
 
