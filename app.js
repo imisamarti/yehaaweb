@@ -9,12 +9,14 @@ var express         = require("express"),
     Campground      = require("./models/campground"),
     Comment         = require("./models/comment"),
     User            = require("./models/user"),
-    seedDB          = require("./seeds");
+    seedDB          = require("./seeds"),
+    dotenv          = require('dotenv').config();
     
     //routes
     var commentsRoute       = require("./routes/comments"),
+        reviewRoute       = require("./routes/reviews"),
         campgroundsRoute    = require("./routes/campgrounds"),
-        authRoute           =  require("./routes/auth");
+        authRoute           = require("./routes/auth");
     
       
     var url= process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
@@ -49,6 +51,8 @@ app.use(function(req, res, next){
 app.use("/",authRoute);
 app.use("/campgrounds",campgroundsRoute);
 app.use("/campgrounds/:id/comments",commentsRoute);
+app.use("/campgrounds/:id/reviews", reviewRoute);
+
 
 app.listen(process.env.PORT,process.env.IP,function()
 {

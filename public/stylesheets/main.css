@@ -9,6 +9,11 @@ h1 {
 ul {
     list-style: none;
 }
+
+.checked {
+    color: orange;
+}
+
 .navbar-default {
     background-color: initial;
     border-color: #e7e7e7;
@@ -30,10 +35,29 @@ ul {
     margin-left: 5%;
 }
 
+
+
 /*buttons*/
 
-.btn{
-    font-family: 'Roboto', sans-serif;
+.btn-add{
+    background-color: #ABFB88;
+    border-color: #ABFB88;
+    color:black;
+}
+
+.btn-add:hover{
+    background-color: #3DC094;
+    border-color:#3DC094;
+}
+
+.btn-search{
+    background-color: MidnightBlue;
+    border-color: MidnightBlue;
+}
+
+.btn-search:hover{
+    background-color: #3DC094;
+    border-color:#3DC094;
 }
 
 .btn-more {
@@ -41,10 +65,12 @@ ul {
 }
 
 .btn-camp {
-    text-align: center;
-    font-weight: 400;
-    border: none;
-    padding:1em;
+}
+
+.btns-index{
+   width: 40%;
+   margin-left: 5%;
+   margin-right: 5%;
 }
 
 /*user profile*/
@@ -97,8 +123,6 @@ ul {
     /*background-image: url(https://images.unsplash.com/photo-1557329170-f329e0dfa53a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);*/
     background-image: url(https://images.unsplash.com/photo-1445307806294-bff7f67ff225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80);
     height: 700px;
-    margin-left: -17%;
-    margin-right: -17%;
   
 }
 .form-control{
@@ -121,6 +145,15 @@ ul {
     padding:1%;
     font-family: 'Roboto', sans-serif;
 
+}
+
+/*review*/
+.review-new-h4{
+    background-color: PaleTurquoise;
+    border-radius: 2px;
+    padding:1%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 /*index pictures*/
