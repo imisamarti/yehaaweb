@@ -1,28 +1,24 @@
 <% include ../partials/header %>
 
 <div class="container profile-background">
+ 
     <div class="row">
-        <div class="col-md-4 col-sm-2 profile-first-container text-center">
-        
-            <h1 class="profile-names text-center"><%= user.firstName + " " + user.lastName %> </h1> 
-            
+        <div class="col-md-4 col-sm-2 profile-first-container text-center container">
+            <h2 class="profile-names text-center"><%= user.firstName + " " + user.lastName %> </h2> 
                 <img class = "profile-pic" src= "<%= user.avatar %>" alt ="user profile picture">
-            
-         
-         <h3>User information:</h3>
-            <%= user.info %>
-            <div>
-        <h3>Contact:</h3>        
+            <h3>User information:</h3>
+                <p class="ellipsis"><%= user.info %></p>
+            <h3>Contact:</h3>        
                 <button type="button" class="btn btn-success btn-contact" aria-label="earphone">
-                  <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
                 </button>
                 
                 <button type="button" class="btn btn-success btn-contact" aria-label="">
                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                 </button>
-            </div>
         </div>
         <!--image and user name ending-->
+        <div class="row" >
         <div class"col-md-7">
       
         <h4 class="profile-username-name"><%= user.username%>'s campgrounds:</h4> 
@@ -48,6 +44,7 @@
                         </div>
                     </li>
                 </ul>
+        </div>
         </div>
     </div>
 </div>       

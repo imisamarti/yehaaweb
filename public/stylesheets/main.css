@@ -35,6 +35,15 @@ ul {
     margin-left: 5%;
 }
 
+/*Dropdown menu*/
+#dropdownMenu1{
+    border-color: white;
+}
+
+#dropdownMenu1:active{
+    background-color: lightgray;
+}
+
 
 
 /*buttons*/
@@ -73,20 +82,37 @@ ul {
    margin-right: 5%;
 }
 
+.btn-contact {
+    margin-top: 2vh;
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+}
+.two-main-btn{
+    margin-top: 16%;
+    margin-left: 23%;
+}
+
 /*user profile*/
 
 .profile-background{
-    padding-top: 5vh;
+    padding-top: 2vh;
 }
 .profile-first-container{
     background-color: #ddd;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     border-radius: 4px; 
     margin-right: 4%;
-    height: 450px;
+    max-height: 450px;
     margin-left: 4%;
 }
 
+.ellipsis{
+    display: block;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 .profile-info {
      border: 1px solid #ddd; 
@@ -101,36 +127,42 @@ ul {
 }
 
 .profile-names{
-    padding-top: 1.5vh;
+    padding-top: 1vh;
 }
 
 .profile-username-name{
     padding: 1vh;
 }
 
-.btn-contact {
-    margin-top: 2vh;
-    margin-left: 2vh;
-}
-.two-main-btn{
-    margin-top: 16%;
-    margin-left: 23%;
-}
 
 /*jumbotron*/
+
 .image-index{
     color: white;
     /*background-image: url(https://images.unsplash.com/photo-1557329170-f329e0dfa53a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);*/
     background-image: url(https://images.unsplash.com/photo-1445307806294-bff7f67ff225?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80);
-    height: 700px;
-  
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 600px;
 }
 .form-control{
     width: 62%;
 }
 .index-ctc{
-    padding-top: 10%;
+    /*padding-top: 10%;*/
     padding: 10%;
+}
+/*alert info*/
+.alert-info{
+    margin-top:20px;
+}
+
+.navbar{
+    margin-bottom: 0px;
 }
 
 .h1-brand{
