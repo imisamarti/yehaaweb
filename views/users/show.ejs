@@ -1,50 +1,57 @@
 <% include ../partials/header %>
 
 <div class="container profile-background">
- 
+    
     <div class="row">
-        <div class="col-md-4 col-sm-2 profile-first-container text-center container">
-            <h2 class="profile-names text-center"><%= user.firstName + " " + user.lastName %> </h2> 
-                <img class = "profile-pic" src= "<%= user.avatar %>" alt ="user profile picture">
-            <h3>User information:</h3>
-                <p class="ellipsis"><%= user.info %></p>
+    <div class="col-sm-5 col-xs-12">
+        <div class="profile-first-container text-center card">
+            <div class="card-body">
+            <h2 class="card-title"><%= user.firstName + " " + user.lastName %> </h2> 
+                <img class = "profile-pic card-img-top" src= "<%= user.avatar %>" alt ="user profile picture">
+            <h3 class="mt-2">User information:</h3>
+                <p class="card-text"><%= user.info %></p>
             <h3>Contact:</h3>        
-                <button type="button" class="btn btn-success btn-contact" aria-label="earphone">
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                <button type="button" class="btn btn-success btn-contact" aria-label="phone">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                 </button>
                 
                 <button type="button" class="btn btn-success btn-contact" aria-label="">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <i class="far fa-envelope" aria-hidden="true"></i>
                 </button>
+            </div>    
         </div>
+    </div>    
         <!--image and user name ending-->
-        <div class="row" >
-        <div class"col-md-7">
       
-        <h4 class="profile-username-name"><%= user.username%>'s campgrounds:</h4> 
+        <!--<div class="row" >-->
+        <div class="col-sm-7 col-xs-12">
+            <div class="card border-light">
+             <h4 class="profile-username-name mt-2 card-title "><%= user.username%>'s campgrounds:</h4> 
         
                 <ul >
                     <li class="text-center">  
                         <div class="row text-center" style="display:flex; flex-wrap:wrap;">
                          <% campgrounds.forEach(function(campground){ %>
-                            <div class="col-md-6 col-sm-4">
-                                <div class="thumbnail" id="index-pic-container-b">
+                          <div class="col-sm-6">     
+                            <div class="card border-light">
+                                <div class="card-body" id="index-pic-container-b">
                              
                                 <a href= "/campgrounds/<%= campground._id %>" >
-                                    <img src= "<%= campground.image %>">
+                                    <img src= "<%= campground.image %>" class="card-img-top">
                                 </a>    
                                
-                                        <div class="caption">
-                                            <h4><%= campground.name %> </h4>
+                                        <div class="card-title">
+                                            <h4 class="card-title"><%= campground.name %> </h4>
                                         </div>
                                     
                                 </div>
-                            </div>    
+                            </div> 
+                          </div>    
                          <% }); %>
                         </div>
                     </li>
                 </ul>
-        </div>
+          </div>
         </div>
     </div>
 </div>       
