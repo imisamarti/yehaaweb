@@ -6,9 +6,10 @@
             <title> Yeeha </title>
              <!--Links-->
              <link rel="icon" type="image/png" sizes="16x16" href="https://imgur.com/a/n73vzbZ">
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css?family=Passion+One|Roboto:300" rel="stylesheet">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <!--bootstrap cdn 4.3-->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link rel="stylesheet" href="/stylesheets/main.css">
             
     </head>
@@ -16,27 +17,26 @@
      
      <!--Start of body-->
         <!--NAV BAR-->
-     <nav class="navbar navbar-default">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <div class="navbar-header">
         <!--dropdown with home button ad sign in-->
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <a class="navbar-brand" href="/campgrounds">
+              <a class="btn dropdown-toggle" href="/" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://i.imgur.com/sR9IYws.png" alt="Yeeha icon" style="width:28px;height:28px;">
                         </a>
                 <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
-                 <li role="separator" class="divider"></li>
+                 <div class="dropdown-divider"></div>
                  <% if(!currentUser){ %>
                   <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
                   <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
               <% } else { %>
                   <li><a href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a></li>
                   <li><a href="/users/<%= currentUser._id %>/edit">Edit Profile</a></li>
-                  <li role="separator" class="divider"></li>
+                  <div class="dropdown-divider"></div>
                   <li><a href="/logout">Logout</a></li>
               <% } %>
               </ul>
@@ -44,20 +44,23 @@
         </div>
         
         <!--search bar and add campground-->
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <form action="/campgrounds" method="GET" class="navbar-form navbar-right">
-                  <div class="form-group">
-                      <input type="text" name="search" placeholder="Start searching for a campground..." class="form-control">
-                    </div>      
-                      <button type="submit" class="btn btn-primary btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                      <a href="/campgrounds/new"><span class="btn btn-primary glyphicon glyphicon-plus btn-add"></span></a>  
-         </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav clearfix">
+                    <form action="/campgrounds" method="GET" class="form-inline my-2 my-lg-0 float-right">
+                        <div class="form-group">
+                         <input type="search" name="search" placeholder="Search" aria-label="Search" class="form-control ml-5">
+                        </div>  
+                         <button class="btn btn-sm btn-outline btn-search my-2 my-sm-0 ml-1 float-right" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</span></button>
+                         <a href="/campgrounds/new" class="btn btn-sm btn-add ml-1 float-right"> <i class="fas fa-plus"></i> Add</a>  
+                    </form>
+                </ul>
+            </div>
             
-          </ul>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <!--These are the Flash Messages-->
 

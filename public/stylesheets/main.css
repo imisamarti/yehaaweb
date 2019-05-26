@@ -51,17 +51,19 @@ ul {
 .btn-add{
     background-color: #ABFB88;
     border-color: #ABFB88;
-    color:black;
+    color:white;
 }
 
 .btn-add:hover{
     background-color: #3DC094;
     border-color:#3DC094;
+    color:black;
 }
 
 .btn-search{
     background-color: MidnightBlue;
     border-color: MidnightBlue;
+    color:white;
 }
 
 .btn-search:hover{
@@ -191,8 +193,7 @@ ul {
 /*index pictures*/
 #index-pic-container{
     position: relative;
-    width:  240px;
-    height: 280px;
+  
     background-position: 50% 50%;
     background-repeat:   no-repeat;
     background-size:     cover;

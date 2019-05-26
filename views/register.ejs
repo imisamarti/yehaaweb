@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Yeeha</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/stylesheets/login.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
     </head>
@@ -14,22 +14,21 @@
         <div class="navbar-header">
         <!--dropdown with home button ad sign in-->
             <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <a class="navbar-brand" href="/campgrounds">
+               <a class="btn dropdown-toggle" href="/" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://i.imgur.com/sR9IYws.png" alt="Yeeha icon" style="width:28px;height:28px;">
                         </a>
                 <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
-                 <li role="separator" class="divider"></li>
+                 <div class="dropdown-divider"></div>
                  <% if(!currentUser){ %>
                   <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
                   <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
               <% } else { %>
                   <li><a href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a></li>
                   <li><a href="/users/<%= currentUser._id %>/edit">Edit Profile</a></li>
-                  <li role="separator" class="divider"></li>
+                  <div class="dropdown-divider"></div>
                   <li><a href="/logout">Logout</a></li>
               <% } %>
               </ul>
@@ -66,18 +65,18 @@
                         <form action="/register" method="POST">
                                 <div class="form-group">
                                      <div class="form-group">
-                                <input type="text" class="form-control" name="firstName" placeholder="First Name" />
+                                <input type="text" class="form-control" name="firstName" placeholder="First Name" required autofcus />
                             </div>
                              <div class="form-group">
                                 <input type="text" class="form-control" name="lastName" placeholder="Last Name" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" />
+                                <input type="email" class="form-control" name="email" placeholder="Email" required />
                             </div>
-                                <input type="text" class="form-control" name="username" placeholder="Username" />
+                                <input type="text" class="form-control" name="username" placeholder="Username" required />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Password" />
+                                <input type="password" class="form-control" name="password" placeholder="Password" required />
                             </div>
                              <div class="form-group">
                                 <input type="text" class="form-control" name="adminCode" placeholder="Admin Code" />

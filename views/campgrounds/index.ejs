@@ -3,7 +3,7 @@
 <div class="container">
     
     <% if(currentUser && currentUser.isAdmin) { %>
-        <p><strong>Welcome, you are signed in as admin</strong></p>
+        <p class="mt-3"><strong>Welcome, you are signed in as admin</strong></p>
     <% } %>
     
     <header class="image-index">
@@ -14,32 +14,32 @@
     </header>
     
     <div> 
-        <h3>Check out our campground selection:</h3>
+        <h3 class="mt-4">Check out our campground selection:</h3>
         <h5>These campgrounds are rated 4.5 stars and up</h5>
     </div>
+    
     <div class="row text-center" style="display:flex; flex-wrap:wrap;">
-       
-    <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-3 col-sm-4">
-            <div class="thumbnail" id="index-pic-container">
-                <!--<div id="index-pic-container">-->
+        <% campgrounds.forEach(function(campground){ %>
+         <div class= "col-md-4 col-sm-5 col-xs-1 mb-4 mt-4">
+            <div class="card">
                     <a href= "/campgrounds/<%= campground._id %>" >
-                        <img src= "<%= campground.image %>">
+                        <img class="card-img-top" src= "<%= campground.image %>"  >
                     </a> 
-                <!--</div>-->
-            <div class="caption">
-                    <h4><%= campground.name %></h4>
-                    <% if (campground.rating === 0) { %>
-                    <em>No reviews yet.</em>
-                    <% } else { %>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-                    <% } %>
-                </div>
-             <a href= "/campgrounds/<%= campground._id %>" class= "btn btn-info btn-more"> More info</a>
+            <div class="card-body">
+                    <h4 class="card-title"><%= campground.name %></h4>
+                     <p>    
+                        <% if (campground.rating === 0) { %>
+                            <em>No reviews yet.</em>
+                        <% } else { %>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                        <% } %>
+                    </p>    
+                <a href= "/campgrounds/<%= campground._id %>" class= "btn btn-info btn-more"> More info</a>
+             </div>
         </div>
     </div>    
 <% }); %>
